@@ -1,0 +1,263 @@
+@import '_globals';
+@import '_scrollbars';
+@import '_theme';
+@import '_header';
+@import '_mobile';
+@import '_sidebar';
+@import '_content';
+@import '_info';
+@import '_footer';
+@import '_modal';
+
+.hide-mobile {
+
+  @media(max-width: $mobile_break) {
+
+    display: none;
+
+  }
+
+}
+
+body {
+
+  font-size: 13px;
+  font-weight: 400;
+  font-family: $open_sans;
+
+  background: rgba(#F5F5F5, 1);
+
+  a, button, .link, .pointer {
+
+    outline: none;
+    cursor: pointer;
+
+    @include transition(all, 0.265s, ease, 0s);
+
+    * {
+
+      cursor: inherit;
+
+    }
+
+  }
+
+  #main {
+
+    float:       left;
+    outline:     none;
+    min-height: 100vh;
+
+    @include size(100%, auto);
+
+  }
+
+}
+
+#user-info {
+
+  float: right;
+  color: white;
+  display: none;
+  position: relative;
+  background: #2a343c;
+  border-radius: 4px;
+  padding: 0px $user_avatar_size/2 0px 0px;
+
+  @include size(auto, 40px);
+
+  @media(max-width: $mobile_break) {
+
+    float: left;
+    padding: 0px;
+    margin: -2px 0em 0em 1em;
+
+    @include size(auto);
+
+  }
+
+  &:hover,
+  &:focus {
+
+    background: lighten(#2a343c, 5%);
+
+    #user-avatar {
+
+      border-color: lighten(#2a343c, 5%);
+
+    }
+
+  }
+
+  #user-avatar,
+  #user-name {
+
+    float: left;
+    position: relative;
+    display: inline-block;
+    line-height: $user_avatar_size;
+
+  }
+
+  #user-avatar {
+
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px 12px 5px 5px;
+    background: rgba(black, 0.25);
+
+    @include size(30px);
+
+    @media(max-width: $mobile_break) {
+
+      margin: 5px;
+
+    }
+
+  }
+
+  #user-name {
+
+    font-size: 13px;
+    font-weight: 600;
+
+    @media(max-width: $mobile_break) {
+
+      display: none;
+
+    }
+
+  }
+
+  .fa {
+
+    float: right;
+    margin-left: 1em;
+    line-height: 40px;
+    display: inline-block;
+
+  }
+
+  #user-menu {
+
+    left: 0px;
+    top: 100%;
+    z-index: -99999;
+    position: absolute;
+    visibility: hidden;
+    background: lighten(#2a343c, 5%);
+    border-bottom-left-radius:  4px;
+    border-bottom-right-radius: 4px;
+
+    @include opacity(0);
+    @include size(100%, auto);
+    @include transition(all, 0.265s, ease, 0s);
+
+    li {
+
+      clear: both;
+      float: left;
+      padding: 1em;
+      border-top: 1px solid rgba(white, 0.05);
+      display: inline-block;
+
+      @include size(100%, auto);
+
+    }
+
+  }
+
+  &:hover {
+
+    border-bottom-left-radius:  0px;
+    border-bottom-right-radius: 0px;
+
+    #user-menu {
+
+      z-index: 1;
+      visibility: visible;
+
+      @include opacity(1);
+
+    }
+
+  }
+
+}
+
+#site-login {
+
+  border: 0px;
+  float: right;
+  outline: none;
+  display: none;
+  overflow: hidden;
+  position: relative;
+  background: $social_google;
+  border-radius: 4px;
+  padding: 0px $user_avatar_size/2 0px 0px;
+
+  @include size(auto, 40px);
+
+  &:hover,
+  &:focus {
+
+    background: lighten($social_google, 5%);
+
+  }
+
+  @media(max-width: $mobile_break) {
+
+    float: left;
+    padding: 0px;
+    margin-top: -2px;
+    margin: -2px 0em 0em 1em;
+
+    @include size(auto);
+
+  }
+
+  span {
+
+    float: left;
+    color: white;
+    position: relative;
+    display: inline-block;
+    line-height: $user_avatar_size;
+
+    &#login-label {
+
+      font-size: 13px;
+      font-weight: 600;
+
+      @media(max-width: $mobile_break) {
+
+        display: none;
+
+      }
+
+    }
+
+    &.fa {
+
+      line-height: 32px;
+      font-size: 1.25em;
+      text-align: center;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 5px 12px 5px 5px;
+      background: rgba(black, 0.25);
+
+      @include size(30px);
+
+      @media(max-width: $mobile_break) {
+
+        margin: 5px;
+
+      }
+
+    }
+
+  }
+
+}

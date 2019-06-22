@@ -1,0 +1,39 @@
+<header id="page-header">
+
+  <div id="beta-note" title="This website is still very much a beta. There might be some minor bugs floating around on the site. If you find a bug or have some feedback for the site, please create an issues for it on the DevTools Github repository: https://github.com/thinkpixels/devtools.online/issues"></div>
+
+  <div id="logo-container">
+    <h1>DevTools<span>.Online</span></h1>
+    <h2>A <span class="hide-mobile">Massive </span>Collection of Web Dev<span class="hide-mobile">elopment</span> Tools</h2>
+  </div>
+
+  <div id="header-container">
+
+    <div id="search-form">
+
+      <label for="search-input" class="fa fa-search" id="search-icon"></label>
+      <input id="search-input" placeholder="Find tools by name, category, or tags">
+
+    </div>
+
+    <button id="toggle-mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <button id="site-login">
+      <span class="fa fa-lock"></span>
+      <span id="login-label">Login to DevTools</span>
+    </button>
+
+    <div class="pointer" id="user-info">
+      <img id="user-avatar">
+      <label id="user-name"></label>
+    </div>
+
+  </div>
+
+</header>
+
+{{include:mobilenav}}

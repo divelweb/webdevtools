@@ -1,0 +1,120 @@
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@function rem($size) {
+    $rem: $size / 16px;
+    @return $rem * 1rem;
+}
+
+@mixin prefix($a, $b: webkit moz ms o) {
+  @each $c, $d in $a {
+        @if $b {
+          @each $e in $b {
+            #{"-" + $e + "-" + $c}: #{$d};
+          }
+        }
+        // Dump regular property anyway
+        #{$c}: #{$d};
+  }
+}
+
+@mixin transform($a: 90deg, $b: 1, $c: center, $d: center, $e: true){
+    @if $c == center { $c: -50%; left: 50% !important; }
+    @if $d == center { $d: -50%;  top: 50% !important; }
+    @if $e == true { $e: translate3d(0, 0, 0); }@else{ $e: ''; }
+    @include prefix((transform: rotate($a) scale($b) translate($c, $d) $e), webkit ms);
+}
+
+@mixin box-sizing($a: border-box) {
+    @include prefix((box-sizing: border-box), webkit moz);
+}
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin disable-selection($select: none) {
+    @include prefix((user-select: $select), webkit khtml moz ms);
+}
+
+@mixin transition($a: all, $b: 1s, $c: linear, $d: 0s) {
+    @include prefix((transition: $a $b $c $d), webkit moz ms);
+}
+
+@mixin position($a: 0px, $b: $a) {
+    @if $a == center { $a: -50%; left: 50% !important; }
+    @if $b == center { $b: -50%;  top: 50% !important; }
+    @include prefix((transform: translate($a, $b)), webkit ms);
+}
+
+@mixin scale($a: 1) {
+    @include prefix((transform: scale($a)), webkit ms);
+}
+
+@mixin boxshadow($a: 0px, $b: 2px, $c: 3px, $d: -1px, $e: black) {
+    @include prefix((box-shadow: $a $b $c $d $e), webkit moz);
+}
+
+@mixin accelerate {
+    @include prefix((transform: translate3d(0, 0, 0)), webkit ms);
+}
+
+@mixin font-size($a: 16px) {
+    font-size: $a;
+    font-size: rem($a);
+}
+
+@mixin line-height($a: 16) {
+    line-height: $a + px;
+    line-height: (0.125 * $a) + rem;
+}
+
+@mixin aspect-ratio($width, $ratio-x: 16, $ratio-y: 9) {
+    @include size($width, $width * ($ratio-y / $ratio-x));
+}
+
+@mixin opacity($a: 1) {
+    @if $a == hidden { $a: 0; }
+    opacity: $a; filter: alpha(opacity=$a * 100);
+}
+
+@mixin size($a, $b: $a) {
+    width: $a;
+    height: $b;
+}
+
+@mixin backgroundsize($a: cover) {
+    @include prefix((background-size: $a), webkit moz o);
+}
+
+@mixin filter($type, $amount) {
+
+    -webkit-filter: $type+unquote('(#{$amount})');
+    -moz-filter: $type+unquote('(#{$amount})');
+    -ms-filter: $type+unquote('(#{$amount})');
+    -o-filter: $type+unquote('(#{$amount})');
+    filter: $type+unquote('(#{$amount})');
+
+}
+
+@mixin blur($amount, $svg){
+
+    -webkit-filter: url($svg);
+    -webkit-filter: blur($amount);
+    filter: url($svg);
+    filter: blur($amount);
+
+}

@@ -1,0 +1,104 @@
+footer {
+
+  left: 0px;
+  bottom: 0px;
+  background: white;
+  position: fixed;
+  margin-bottom: -13px;
+  border-top: 1px solid $border_color;
+
+  padding-left: $sidebar_width;
+
+  @include size(100%, auto);
+
+  @media(max-width: $mobile_break) {
+
+    float: left;
+    clear: both;
+    float: left;
+    left: initial;
+    bottom: initial;
+    position: relative;
+    padding-left: 0px;
+
+  }
+
+  #footer-content {
+
+    float: left;
+    position: relative;
+    display: inline-block;
+    padding: 1.5em 2em 2em 2em;
+
+    @include size(100%, auto);
+
+    #footer-social {
+
+      float: left;
+      margin-right: 2px;
+      position: relative;
+      display: inline-block;
+
+      @media(max-width: $mobile_break) {
+
+        margin-bottom: 2em;
+
+      }
+
+    }
+
+    #github-btn,
+    #flattr-btn {
+
+      float: left;
+      margin-right: 2px;
+      display: inline-block;
+
+    }
+
+    #github-btn {
+      max-width: 80px;
+    }
+
+    .addthis_toolbox a {
+
+      margin-bottom: 0px !important;
+
+    }
+
+    p {
+
+      float: left;
+      font-size: 12px;
+      line-height: 20px;
+      color: $content_color;
+      display: inline-block;
+
+      @include size(auto, 20px);
+
+      @media(max-width: $mobile_break) {
+
+        clear: both;
+
+        @include size(100%, auto);
+
+      }
+
+      .fa-heart {
+
+        margin: 0px 2px;
+        color: rgba(#FF513D, 1);
+
+      }
+
+      &.float-right {
+
+        float: right;
+
+      }
+
+    }
+
+  }
+
+}
